@@ -3,7 +3,7 @@
 // Access element from DOM
 var itemElement = document.getElementById('items');
 var catalogElement = document.getElementById('catalog');
-var cartElement = document.getElementById('cart');
+
 
 function populateForm() {
   //TODO: Add an <option> tag inside the form's select for each product
@@ -39,24 +39,14 @@ catalogElement.addEventListener('submit', handleSubmit);
 
 function addSelectedItemToCart() {
   // TODO: Add the selected item and quantity to the cart
-  var trElement = document.createElement('tr');
-  var tdElement = document.createElement('td');
-
-  tdElement.textContent = Cart.quantity;
-  trElement.appendChild(tdElement);
-
-  tdElement.textContent = Cart.item;
-  trElement.appendChild(tdElement);
-
-  cartElement.appendChild(trElement);
   
-  document.tbody.innerHTML = tdElement;
 }
 
 
 function saveCartToLocalStorage() {
   // TODO: Save the cart to Local Storage
-
+  var saveCart = JSON.stringify(Cart.cartItems);
+  localStorage.setItem('storedCart', saveCart);
 }
 
 function updateCounter() {

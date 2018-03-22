@@ -1,12 +1,26 @@
 'use strict';
 
 var Cart = [];
+var cartElement = document.getElementsByTagName("tbody");
 
 function loadCart() {
   // TODO: Pull the cart (if it exists) from Local Storage and make available to this app
-}
+
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
+
+var trElement = document.createElement('tr');
+  var tdElement = document.createElement('td');
+
+  tdElement.textContent = Cart.quantity;
+  trElement.appendChild(tdElement);
+
+  tdElement.textContent = Cart.item;
+  trElement.appendChild(tdElement);
+
+  cartElement.appendChild(trElement);
+}
+
 function showCart() {
 
   // TODO: Find the table

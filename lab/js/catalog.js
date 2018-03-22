@@ -1,7 +1,16 @@
 'use strict';
 
+// Access element from DOM
+var itemElement = document.getElementById('items');
+
 function populateForm() {
   //TODO: Add an <option> tag inside the form's select for each product
+ 
+  for (var i in Product.allProducts) {
+    var itemElementTag = document.createElement('option');
+    itemElementTag.textContent = Product.allProducts[i].name;
+    itemElement.appendChild(itemElementTag);
+  }
 }
 
 function handleSubmit(event) {
@@ -15,8 +24,9 @@ function handleSubmit(event) {
     
 }
 
-function addSelectedItemToCart() {
+function addSelectedItemToCart(event) {
   // TODO: Add the selected item and quantity to the cart
+  //target the cart.html page
 }
 
 function saveCartToLocalStorage() {

@@ -2,6 +2,8 @@
 
 // Access element from DOM
 var itemElement = document.getElementById('items');
+var catalogElement = document.getElementById('catalog');
+var cartElement = document.getElementById('cart');
 
 function populateForm() {
   //TODO: Add an <option> tag inside the form's select for each product
@@ -15,19 +17,42 @@ function populateForm() {
 
 function handleSubmit(event) {
   // TODO: Prevent the page from reloading
+  event.preventDefault();
+
+  var newItem = event.target.items.value;
+  var newQuantity = event.target.quantity.value;
+
+  new Cart (newItem, newQuantity);
+
+
+
+  console.log(Cart.cartItems);
 
   // Do all the things
   addSelectedItemToCart();
   saveCartToLocalStorage();
   updateCounter();
   updateCartPreview();
-    
 }
 
-function addSelectedItemToCart(event) {
+catalogElement.addEventListener('submit', handleSubmit);
+
+function addSelectedItemToCart() {
   // TODO: Add the selected item and quantity to the cart
-  //target the cart.html page
+  var trElement = document.createElement('tr');
+  var tdElement = document.createElement('td');
+
+  tdElement.textContent = Cart.quantity;
+  trElement.appendChild(tdElement);
+
+  tdElement.textContent = Cart.item;
+  trElement.appendChild(tdElement);
+
+  cartElement.appendChild(trElement);
+  
+  document.tbody.innerHTML = tdElement;
 }
+
 
 function saveCartToLocalStorage() {
   // TODO: Save the cart to Local Storage

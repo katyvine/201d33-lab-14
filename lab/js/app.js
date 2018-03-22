@@ -2,14 +2,6 @@
 
 // TODO: Create a "Cart" constructor that holds quantity, item, and an array of items in the cart
 
-// Cart Constructor 
-var Cart = function(quantity, item) {
-  this.quantity = quantity;
-  this.item = item;
-  Cart.cartItems.push(this);
-}
-Cart.cartItems = [];
-
 // Product Contructor
 var Product = function(filePath, name) {
   this.filePath = filePath;
@@ -41,6 +33,15 @@ function generateCatalog() {
   new Product('assets/water-can.jpg', 'Water Can');
   new Product('assets/wine-glass.jpg', 'Wine Glass');
 }
+
+// Cart Constructor 
+var Cart = function(quantity, item) {
+  this.quantity = quantity;
+  this.item = item;
+  Cart.cartItems.push(this);
+}
+Cart.cartItems = [];
+
 
 // Initialize the app
 generateCatalog();

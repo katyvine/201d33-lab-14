@@ -24,8 +24,6 @@ function handleSubmit(event) {
 
   new Cart (newItem, newQuantity);
 
-
-
   console.log(Cart.cartItems);
 
   // Do all the things

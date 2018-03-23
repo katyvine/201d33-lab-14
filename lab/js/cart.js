@@ -22,7 +22,7 @@ function loadCart() {
 function showCart() {
 
   // TODO: Find the table
-  var cartElement = document.getElementsByTagName("tbody");
+  var cartElement = document.getElementById("cart");
 
   // TODO: Iterate over the items in the cart
   for (var i=0; i < Cart.cartItems.length; i++) {
@@ -32,15 +32,21 @@ function showCart() {
   // TODO: Create a TD for the quantity and the item
   var tdElement = document.createElement('td');
 
+  tdElement.textContent = 'X';
+  trElement.appendChild(tdElement);
+  tdElement = document.createElement('td');
+
   // TODO: Add the TR to the TBODY and both TD's to the TR
-  tdElement.textContent = Cart.cartItems.item;
+  tdElement.textContent = Cart.cartItems[i].item;
   trElement.appendChild(tdElement);
 
-  tdElement.textContent = Cart.cartItems.quantity;
+  tdElement = document.createElement('td');
+
+  tdElement.textContent = Cart.cartItems[i].quantity;
   trElement.appendChild(tdElement);
-}
 
   cartElement.appendChild(trElement);
+  }
 }
 
 

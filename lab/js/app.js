@@ -34,12 +34,12 @@ function generateCatalog() {
   new Product('assets/wine-glass.jpg', 'Wine Glass');
 }
 
-// Cart Constructor 
+// Cart Constructor
 var Cart = function(quantity, item) {
   this.quantity = quantity;
   this.item = item;
   Cart.cartItems.push(this);
-}
+};
 Cart.cartItems = [];
 
 
